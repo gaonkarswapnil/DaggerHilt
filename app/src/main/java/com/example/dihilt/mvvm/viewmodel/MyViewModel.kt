@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.dihilt.mvvm.model.Retrofit
+import com.example.dihilt.mvvm.model.RoomDB
 import com.example.dihilt.mvvm.model.repository.UserInterface
 import com.example.dihilt.mvvm.model.response.DataItem
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MyViewModel @Inject constructor(
-    @Retrofit private val repository: UserInterface
+    @RoomDB private val repository: UserInterface
 ): ViewModel() {
     fun getData(): LiveData<Result<List<DataItem>>>{
         val getDataResponse = MutableLiveData<Result<List<DataItem>>>()

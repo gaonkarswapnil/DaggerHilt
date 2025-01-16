@@ -1,6 +1,8 @@
 package com.example.dihilt.mvvm.di
 
 import com.example.dihilt.mvvm.model.Retrofit
+import com.example.dihilt.mvvm.model.RoomDB
+import com.example.dihilt.mvvm.model.repository.UserDB
 import com.example.dihilt.mvvm.model.repository.UserInterface
 import com.example.dihilt.mvvm.model.repository.UserRetrofit
 import dagger.Module
@@ -20,5 +22,13 @@ class UserRepoModule {
     @Retrofit
     fun provideUserRepo(userRetrofit: UserRetrofit): UserInterface{
         return userRetrofit
+    }
+
+
+    @Provides
+    @Singleton
+    @RoomDB
+    fun provideUserDB(userDB: UserDB): UserInterface{
+        return userDB
     }
 }
